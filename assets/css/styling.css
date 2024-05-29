@@ -1,0 +1,29 @@
+
+  #container {
+    width: 800px;
+    height: 800px;
+    position: centre;
+    background: rgb(0, 0, 0);
+  }
+  
+  #animate {
+    width: 200px;
+    height: 200px;
+    position: left;
+    background: red;
+  }
+
+
+  textarea {
+    display: block;
+    border: 1px solid #BBB;
+    color: #444;
+    font-size: 110%;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+
+  
