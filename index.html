@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>MaQlens B</title>
+  <title>Cion Casto ( Morris Karamu ) !</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -28,127 +28,350 @@
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/styling.css" rel="stylesheet">
 
-<style>
-    #train {
-      position: relative;
-      cursor: pointer;
-    }
-  </style>
-  <style>
-    progress {
-      width: 5%;
-    }
-  </style>
 
+
+<!-- Buttonizer -->
+<script type="text/javascript">
+  (function(n,t,c,d){if (t.getElementById(d)){return;};var o=t.createElement("script");o.id=d;o.async=!0,o.src="https://cdn.buttonizer.io/embed.js",o.onload=function(){window.Buttonizer.init(c)},t.head.appendChild(o)})(window,document,"ea30e6f2-7bed-44a8-8d94-44eab0bde99b", "buttonizer_script");
+  </script>
+  <!-- End Buttonizer -->
+
+
+ <!-- Animated Element start ================================================================ -->
+
+  <style>
+    #train {
+        position: relative;
+        cursor: pointer;
+    }
+    progress {
+        width: 5%;
+    }
+</style>
 </head>
 <body>
 
 <progress id="elem"></progress>
+
 <script>
-  elem.onclick = function() {
-    animate({
-      duration: 1000,
-      timing: function(timeFraction) {
-        return timeFraction;
-      },
-      draw: function(progress) {
-        elem.style.width = progress * 100 + '%';
-      }
+document.addEventListener('DOMContentLoaded', () => {
+    const elem = document.getElementById('elem');
+
+    elem.addEventListener('click', () => {
+        animate({
+            duration: 1000,
+            timing: timeFraction => timeFraction,
+            draw: progress => {
+                elem.style.width = progress * 100 + '%';
+            }
+        });
     });
-  };
+});
+
+function animate({duration, timing, draw}) {
+    const start = performance.now();
+
+    requestAnimationFrame(function animate(time) {
+        let timeFraction = (time - start) / duration;
+        if (timeFraction > 1) timeFraction = 1;
+
+        const progress = timing(timeFraction);
+
+        draw(progress);
+
+        if (timeFraction < 1) {
+            requestAnimationFrame(animate);
+        }
+    });
+}
 </script>
+  <!-- Animated Element End ================================================================ -->
 
-  <script>
-    function animateText(textArea) {
-      let text = textArea.value;
-      let to = text.length,
-        from = 0;
 
-      animate({
-        duration: 5000,
-        timing: bounce,
-        draw: function(progress) {
-          let result = (to - from) * progress + from;
-          textArea.value = text.slice(0, Math.ceil(result))
-        }
-      });
-    }
+
+
+
+
+  <style>
     
-    function bounce(timeFraction) {
-      for (let a = 0, b = 1; 1; a += b, b /= 2) {
-        if (timeFraction >= (7 - 4 * a) / 11) {
-          return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + Math.pow(b, 2)
-        }
-      }
+    header {
+        text-align: center;
     }
-  </script>
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: cyan;
+    }
+
+    .stars-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .star-container {
+        margin: 0 10px;
+    }
+
+    .star {
+        display: inline-block;
+        font-size: 2em;
+        color: gold;
+        cursor: pointer;
+        transition: transform 0.2s, color 0.2s;
+        animation: pulse var(--pulse-duration) infinite alternate;
+    }
+
+    @keyframes pulse {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale(1.2);
+        }
+    }
+
+    .star:hover {
+        transform: scale(1.2);
+        color: #ffd700;
+    }
+
+    /* Define custom animation durations for each star */
+    .star:nth-child(1) {
+        --pulse-duration: 0.8s;
+    }
+
+    .star:nth-child(2) {
+        --pulse-duration: 1.0s;
+    }
+
+    .star:nth-child(3) {
+        --pulse-duration: 1.2s;
+    }
+
+    .star:nth-child(4) {
+        --pulse-duration: 1.4s;
+    }
+
+    .star:nth-child(5) {
+        --pulse-duration: 1.6s;
+    }
+
+    /* Media query for responsive design */
+    @media (max-width: 768px) {
+        h1 a{
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+
+        .stars-container {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 a{
+            font-size: 28px;
+        }
+
+        h2 {
+            font-size: 16px;
+        }
+    }
+    .socialsummary{
+      display:flex;
+      justify-content: space-between;
+    }
+</style>
 
 
 
 </body>
-
-
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="container">
 
-      <h1><a onmouseover="style.color='cyan'" href="index.html">Morris Bosire</a></h1>
-      <h2>I'm a Dithyrambic <span>Sofware Engineer</span> From : East Africa [ Kenya ]</h2>
-      <h2 onmouseover="style.color='brown'" >Self-Reflex as : <span onmouseout="style.color='cyan'" >Lenscasto</span> </h2>
-
-       <!-- ======= supreme Section ======= -->
+      <h1><a onmouseover="style.color='cyan'" href="index.html">Morris B. Karamu</a></h1>
+      <h2>The Ethos of a Dithyrambic <span>Sofware Developer</span> transcending Globally </h2>
+      <h2 onmouseover="style.color='brown'" >Self-Reflex as : <span onmouseout="style.color='cyan';" >Cion Casto</span> </h2>
+      <div class="stars-container">
+        <!-- Adjust the number of stars by duplicating the .star-container elements -->
+        <div class="star-container">
+            <div class="star">&#9733;</div>
+        </div>
+        <div class="star-container">
+            <div class="star">&#9733;</div>
+        </div>
+        <div class="star-container">
+            <div class="star">&#9733;</div>
+        </div>
+        <div class="star-container">
+            <div class="star">&#9733;</div>
+        </div>
+        <div class="star-container">
+            <div class="star">&#9733;</div>
+        </div>
+    </div>
+</head>
 
   
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link active" href="#header">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#resume">Resume</a></li>
-          <li><a class="nav-link" href="#services">Services</a></li>
-          <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+<nav id="navbar" class="navbar">
+  <ul>
+    <li><a id="home-link" class="nav-link active" href="#header">Home</a></li>
+    <li><a class="nav-link" href="#about">About</a></li>
+    <li><a class="nav-link" href="#resume">Resume</a></li>
+    <li><a class="nav-link" href="#services">Services</a></li>
+    <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+    <li><a class="nav-link" href="#contact">Contact</a></li>
+  </ul>
+  <i class="bi bi-list mobile-nav-toggle"></i>
+</nav><!-- .navbar -->
 
-      <div class="social-links">
+<div id="socialsummary" class="socialsummary">
+      <div class="sociallinks">
         <a href="https://twitter.com/Lenscasto" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="https://www.facebook.com/maury.bellatryx" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="https://instagram.com/Lenscasto" class="instagram"><i class="bi bi-instagram"></i></a>
         <a href="https://www.linkedin.com/in/morris-k-79aa3023a" class="linkedin"><i class="bi bi-linkedin"></i></a>
         <br>
-        <a href="summary.html" class="notification1"> <span>SUMMARY</span> <span class="badge">7</span></a>
-    <style>
-    .notification1 {
-    background-color: #555;
-    color: white;
-    text-decoration: none;
-    padding: 40px 70px;
-    position: relative;
-    display: inline-block;
-    border-radius: 2px;
-  }
-  
-  .notification1:hover {
-    background: red;
-  }
-  
-  .notification1 .badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    padding: 5px 10px;
-    border-radius: 50%;
-    background: red;
-    color: white;
-  }
-  
-</style>
       </div>
+        <button class="notificationuno" onclick="window.location.href='summary.html'">
+          <span>Cion Casto</span>
+          <span class="badge">8</span>
+        </button>
+      </div>
+      <script>
+        // Get the home link and all nav links
+        const homeLink = document.getElementById('home-link');
+        const navLinks = document.querySelectorAll('#navbar .nav-link');
+    
+        // Get the socialsummary div
+        const socialSummary = document.getElementById('socialsummary');
+    
+        // Add click event listeners to nav links
+        navLinks.forEach(link => {
+          link.addEventListener('click', (event) => {
+            // Check if the clicked link is not the Home link
+            if (event.target !== homeLink) {
+              // Hide the socialsummary div
+              socialSummary.style.display = 'none';
+            } else {
+              // Show the socialsummary div
+              socialSummary.style.display = 'block'; // or 'flex', depending on your CSS display property
+            }
+          });
+        });
+      </script>
+    
+        <style>
+          .sociallinks {
+            text-align: center;
+            margin: 20px 0;
+          }
+        
+          .sociallinks a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #555;
+            font-size: 24px;
+            transition: color 0.3s;
+          }
+        
+          .sociallinks a:hover {
+            color: cyan;
+          }
+          
+          /* Media query for phone mode */
+          @media (max-width: 768px) {
+            .sociallinks {
+              display: none;
+            }
+          }
+                
+          .notificationuno {
+            background-color: #555;
+            color: white;
+            text-decoration: none;
+            padding: 10px 70px; /* Balanced padding for a rectangular shape */
+            display: inline-block;
+            border-radius: 8px; /* Slightly rounded corners */
+            font-size: 16px; /* Font size for readability */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+            border: 1px solid #444; /* Border for better definition */
+            cursor: pointer;
+            text-align: center; /* Center text inside the button */
+            font-family: Arial, Helvetica, sans-serif; /* Consistent font */
+            position: relative; /* Needed for badge positioning */
+          }
+                
+          .notificationuno:hover {
+            background-color: red; /* Hover background color */
+          }
+        
+          .notificationuno .badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            padding: 5px 10px;
+            border-radius: 50%;
+            background-color: green;
+            color: white;
+            font-size: 14px; /* Font size for the badge */
+          }
+        
+          /* Media query for tablet and phone */
+          @media (max-width: 768px) {
+            .notificationuno {
+              padding: 10px 40px;
+              font-size: 14px;
+            }
+        
+            .notificationuno .badge {
+              font-size: 12px;
+              top: -5px;
+              right: -5px;
+              padding: 3px 7px;
+            }
+          }
+        
+          @media (max-width: 480px) {
+            .notificationuno {
+              padding: 10px 20px;
+              font-size: 12px;
+            }
+        
+            .notificationuno .badge {
+              font-size: 10px;
+              top: -3px;
+              right: -3px;
+              padding: 2px 5px;
+            }
+          }
+        </style>
+    
 
     <!--Display button-->
 
-    </div>
+ 
   </header><!-- End Header -->
 
 
@@ -163,8 +386,8 @@
     <div class="about-me container">
 
       <div class="section-title">
-        <h2>About</h2>
-        <p onmouseout="style.color='#8300ff'" >Ultimate Touch about me</p>
+        <h2>This is what they say !</h2>
+        <p onmouseout="style.color='#8300ff'" >Ultimate Touch On !</p>
       </div>
 
       <div class="row">
@@ -811,14 +1034,239 @@
     </div>
   </section><!-- End Portfolio Section -->
 
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container">
 
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p onmouseout="style.color='#8300ff'" >Contact Me</p>
-      </div>
+
+   <!-- ======= Contact Section ======= -->
+   <section id="contact" class="contact">
+
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Cion Casto with You.</h2>
+            <p onmouseout="style.color='#8300ff'">Get In Touch !</p>
+        </div>
+
+        <div class="row gy-4" style="background: #e4eae4ac">
+            <!-- Address, Call Us, Email Us, and Open Hours sections -->
+            <div class="col-lg-6">
+                <div class="row gy-4">
+                    <div class="col-md-6 d-none d-lg-block"> <!-- Hide on mobile -->
+                        <div class="info-box">
+                            <i class="bi bi-pencil"></i>
+                            <h3>Accuracy</h3>
+                            <p>High Quality services and <br>Unprecedented Support</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-none d-lg-block"> <!-- Hide on mobile -->
+                        <div class="info-box">
+                            <i class="bi bi-telephone"></i>
+                            <h3>Call Us</h3>
+
+                            <a href="tel:+254799167780">+254799167780</a><br>Or<br>
+                            <a href="tel:+254799909127">+254799909127</a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-none d-lg-block"> <!-- Hide on mobile -->
+                        <div class="info-box">
+                            <i class="bi bi-envelope"></i>
+                            <h3>Email Us</h3>
+                            <a href="mailto:bosiremorris@gmail.com">bosiremorris@gmail.com</a>
+                            <a href="mailto:cioncasto@gmail.com">cioncasto@gmail.com</a>
+                            <a href="mailto:lexmacasto@gmail.com">lexmacasto@gmail.com</a>
+                            <a href="mailto:lenscasto@gmail.com">lenscasto@gmail.com</a>                         
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-none d-lg-block"> <!-- Hide on mobile -->
+                        <div class="info-box">
+                            <i class="bi bi-clock"></i>
+                            <h3>Open Hours</h3>
+                            <p>Sunday - Sunday<br>24/7 Assistance</p>
+                        </div>
+                    </div>
+                    <!-- Image section -->
+                    <div class="col-md-12 d-none d-lg-block"> <!-- Hide on mobile -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+                            frameborder="0" style="border:0; width: 100%; height: 100px;" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-6" style="background-color: rgb(212, 242, 252);">
+                <form id="contactForm" action="https://formbold.com/s/3GK8d" method="post" class="form-control">
+                    <!-- Foldbold account on lexmacasto@gmail.com -->
+                    <div class="row gy-4">
+                        <div class="col-md-6">
+                            <input type="text" name="name" class="form-control"
+                                style="border: 1px solid rgb(13, 33, 253);" placeholder="Your Name" required
+                                maxlength="50">
+                            <!-- Set maximum length to 50 characters -->
+                            <div class="field-error" id="name-error"></div>
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <input type="email" class="form-control" name="email"
+                                style="border: 1px solid rgb(219, 19, 223);" placeholder="Your Email" required
+                                maxlength="50">
+                            <!-- Set maximum length to 100 characters -->
+                            <div class="field-error" id="email-error"></div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="input-group phone-input-group"
+                                style="border: 1px solid black; border-radius: 8px;">
+                                <div class="input-group-prepend" style="width: 30%;">
+                                    <select id="country-code" name="country_code" class="form-select input-group-text"
+                                        required>
+                                        <option value="+1" data-length="10">USA</option>
+                                          <option value="+1" data-length="10">Canada</option>
+                                          <option value="+44" data-length="10">United Kingdom</option>
+                                          <option value="+49" data-length="11">Germany</option>
+                                          <option value="+61" data-length="9">Australia</option>
+                                          <option value="+254" data-length="9">Kenya</option>
+                                          <option value="+64" data-length="8">New Zealand</option>
+                                          <option value="+86" data-length="11">China</option>
+                                          <option value="+33" data-length="10">France</option>
+                                          <option value="+7" data-length="11">Russia</option>
+                                          <option value="+27" data-length="9">South Africa</option>
+                                          <option value="+234" data-length="10">Nigeria</option>
+                                          <option value="+971" data-length="10">UAE</option>
+                                          <option value="+41" data-length="9">Switzerland</option>
+                                          <option value="+46" data-length="10">Sweden</option>
+                                          <option value="+31" data-length="10">Netherlands</option>
+                                          <option value="+45" data-length="8">Denmark</option>
+                                          <option value="+352" data-length="10">Luxembourg</option>
+                                          <option value="+353" data-length="10">Ireland</option>
+                                          <option value="+65" data-length="8">Singapore</option>
+                                          <option value="+47" data-length="8">Norway</option>
+                                          <option value="+358" data-length="8">Finland</option>
+                                        <!-- Add more options for other country codes as needed -->
+                                    </select>
+                                </div>
+                                <input id="phone-number" type="tel" class="form-control" name="phone"
+                                    placeholder="Your Phone" required pattern="^\+(?:[0-9] ?){6,14}[0-9]$"
+                                    title="Please enter a valid phone number including country code"
+                                    style="width: 70%; min-width: 0;" maxlength="15">
+                                <!-- Set maximum length to 15 characters for phone number -->
+                                <div class="field-error" id="phone-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <select name="subject" class="form-control" style="border: 1px solid black;" required>
+                                <option value="" disabled selected>Select Subject</option>
+                                <option value="Assistance Request">Assiatance Request</option>
+                                <option value="Feedback Responce">Feedback Responce</option>
+                             </select>
+                            <div class="field-error" id="subject-error"></div>
+                        </div>
+                        <div class="col-md-12" style="border:3px;">
+                            <textarea class="form-control" name="message" rows="6" style="border: 1px solid rgb(170, 0, 255);"
+                                placeholder="Write Something... Comment/Message !" maxlength="2000"></textarea>
+                            <!-- Set maximum length to 500 characters -->
+                            <div class="field-error" id="message-error"></div>
+                        </div>
+                        <button type="button" class="btn btn-success btn-md" id="submitBtn">Send Message</button>
+                    </div>
+                </form>
+            </div>
+
+            <style>
+                @media (max-width: 768px) {
+                    .phone-input-group {
+                        display: flex;
+                        flex-direction: row;
+                    }
+
+                    .phone-input-group select {
+                        width: 100%;
+                        font-size: 12px;
+                        background-position: right 2px center;
+                        /* Set position of custom arrow */
+                        background-size: 6px;
+                        /* Set size of custom arrow */
+                    }
+
+                    .phone-input-group input {
+                        width: 100%;
+                    }
+                }
+            </style>
+
+
+            <script>
+                document.getElementById('submitBtn').addEventListener('click', function(event) {
+                    // Get form fields
+                    var name = document.querySelector('input[name="name"]');
+                    var email = document.querySelector('input[name="email"]');
+                    var phone = document.querySelector('input[name="phone"]');
+                    var countryCode = document.querySelector('select[name="country_code"]');
+                    var subject = document.querySelector('select[name="subject"]');
+                    var message = document.querySelector('textarea[name="message"]');
+
+                    // Validate fields
+                    var isValid = true;
+
+                    if (name.value.trim() === '') {
+                        isValid = false;
+                        alert('Name is required.');
+                    }
+
+                    if (email.value.trim() === '') {
+                        isValid = false;
+                        alert('Email is required.');
+                    } else if (!/^\S+@\S+\.\S+$/.test(email.value)) {
+                        isValid = false;
+                        alert('Email is invalid.');
+                    }
+
+                    if (phone.value.trim() === '') {
+                        isValid = false;
+                        alert('Phone is required.');
+                    } else {
+                        var selectedOption = countryCode.options[countryCode.selectedIndex];
+                        var requiredLength = parseInt(selectedOption.getAttribute('data-length'));
+                        var prefixLength = selectedOption.value.length;
+                        var phoneNumber = phone.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+
+                        // Validate phone number length excluding the prefix
+                        if (phoneNumber.length != (requiredLength + prefixLength - 1)) {
+                            isValid = false;
+                            alert('Please Enter correct Phone number! It must be exactly ' + requiredLength +
+                                ' digits for ' + selectedOption.text + '!');
+                        }
+                    }
+
+                    if (subject.value.trim() === '') {
+                        isValid = false;
+                        alert('Subject is required.');
+                    }
+
+                    // Temporarily set the message value to "No Message !" if empty
+                    if (message.value.trim() === '') {
+                        message.value = 'No Message !';
+                    }
+
+                    // If form is valid, allow normal form submission
+                    if (isValid) {
+                        document.getElementById('contactForm').submit();
+                    } else {
+                        // Reset the message value back to empty if form is not valid
+                        if (message.value === 'No Message !') {
+                            message.value = '';
+                        }
+                    }
+                });
+            </script>
+
+
+
+
+
+
 
       <div class="row mt-2">
 
@@ -858,33 +1306,7 @@
             <p>+254 79916 7780</p>
           </div>
         </div>
-      </div>
-
-      <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
-        <div class="row">
-          <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-          </div>
-        </div>
-        <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-        </div>
-        <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-        </div>
-        <div class="my-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your message has been sent. Thank you!</div>
-        </div>
-        <div class="text-center"><button type="submit">Send Message</button></div>
-      </form>
-
-
-      
+      </div>      
     </div>
   </section><!-- End Contact Section -->
 
@@ -902,7 +1324,7 @@
     <!-- You can delete the links only if you purchased the pro version. -->
     <!-- Licensing information: https://bootstrapmade.com/license/ -->
     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
-    Designed by <a href="https://www.linkedin.com/in/morris-k-79aa3023a">Lenscasto</a>
+    Custom Crafted by: <a href="https://www.linkedin.com/in/morris-k-79aa3023a">Cion Casto</a>
     <button type="button" onclick ="window.print()">Print this page</button>
   </div>
 
